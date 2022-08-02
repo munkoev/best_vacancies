@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import React from 'react';
 import styles from './NavBarCompany.module.css'
 import {useDispatch} from 'react-redux'
-import {logout} from '../../redux/vacanciesSlice'
+import {logout} from '../../../redux/vacanciesSlice'
 
 function NavBarCompany() {
     const dispatch = useDispatch();
