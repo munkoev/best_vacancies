@@ -2,12 +2,13 @@ import React from "react";
 import InputField from "../../components/InputField/InputField";
 import Select from "../../components/Select/Select";
 import styles from './CreateVacancy.module.css'
-import {useDispatch, useSelector} from 'react-redux'
-import {add_vacancy} from '../../redux/vacanciesSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { add_vacancy } from '../../redux/vacanciesSlice'
+import { IRootState } from '../../redux/storage'
 
 function CreateVacancy() {
     const dispatch = useDispatch();
-    const state = useSelector(state => state)
+    const state = useSelector((state: IRootState) => state)
     const curr = {
         title: "",
         description: "",
@@ -15,7 +16,8 @@ function CreateVacancy() {
         closed: false,
         english_lvl: "",
         grade: "",
-        tags: '',
+        tags_str: '',
+        tags: [','],
         users: [],
         owner: state.combined.users.current
     }
@@ -39,13 +41,13 @@ function CreateVacancy() {
                 curr.grade = e.target.options[e.target.selectedIndex].text;
             }} id="vac_grade"></Select>
             <InputField label="Tags, comma sep." id="vac_tags" onChange={e => {
-                curr.tags = e.target.value;
+                curr.tags_str = e.target.value;
             }}/>
             <div className={styles.btns}>
                 <button>Close</button>
                 <button onClick={()=> {
                     console.log(curr)
-                    curr.tags = curr.tags.split(',');
+                    curr.tags = curr.tags_str.split(',');
                     dispatch(add_vacancy(curr))
                     resetFields();
                 }}> Save</button>
@@ -56,11 +58,11 @@ function CreateVacancy() {
 }
 
 function resetFields() {
-    document.getElementById('vac_title').value = ''
-    document.getElementById('vac_desc').value = ''
-    document.getElementById('vac_eng').value = ''
-    document.getElementById('vac_grade').value = ''
-    document.getElementById('vac_tags').value = ''
+    (document.getElementById('vac_title') as HTMLInputElement)!.value = '';
+    (document.getElementById('vac_desc') as HTMLInputElement)!.value = '';
+    (document.getElementById('vac_eng') as HTMLInputElement)!.value = '';
+    (document.getElementById('vac_grade') as HTMLInputElement)!.value = '';
+    (document.getElementById('vac_tags') as HTMLInputElement)!.value = '';
 }
 
 export default CreateVacancy;

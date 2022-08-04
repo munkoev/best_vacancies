@@ -1,12 +1,22 @@
 import React, {useState} from 'react'
 import styles from './Select.module.css'
 
-function Select(props) {
+interface ISelectProps<Type> {
+    arr: Type[],
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void,
+    label: string,
+    id: string,
+    default?: string
+}
+
+function Select(props: ISelectProps<string>) {
     const [val, setVal] = useState('select');
 
-    function onChangeHandler(e) {
+    function onChangeHandler(e: React.ChangeEvent<HTMLSelectElement>) {
         props.onChange(e);
-        setVal(e.target.value)
+        if (e.target) {
+            setVal((e.target as HTMLSelectElement).value)
+        }
     }
 
     return (

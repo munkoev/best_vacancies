@@ -2,15 +2,16 @@ import React from 'react'
 import InputField from '../../components/InputField/InputField'
 import styles from './Signup.module.css'
 import { Link } from 'react-router-dom'
-import {useDispatch, useSelector} from 'react-redux'
-import {add_user} from '../../redux/vacanciesSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { add_user } from '../../redux/vacanciesSlice'
+import { IRootState } from '../../redux/storage'
 
 function Signup() {
-    const state = useSelector(state => state)
+    const state = useSelector((state: IRootState) => state)
     const input = {
-        name: undefined,
-        password: undefined,
-        repeat: undefined,
+        name: "",
+        password: "",
+        repeat: "",
         id: 'u' + (state.combined.users.data.length + 1)
     }
     const dispatch = useDispatch();
@@ -41,9 +42,9 @@ function Signup() {
 }
 
 function resetFields() {
-    document.getElementById('signup_login').value = ''
-    document.getElementById('signup_password').value = ''
-    document.getElementById('signup_password-repeat').value = ''
+    (document.getElementById('signup_login') as HTMLInputElement).value = '';
+    (document.getElementById('signup_password') as HTMLInputElement).value = '';
+    (document.getElementById('signup_password-repeat') as HTMLInputElement).value = '';
 }
 
 export default Signup;

@@ -2,9 +2,10 @@ import React from "react";
 import NavBar from './NavBar/NavBar'
 import NavBarCompany from './NavBarCompany/NavBarCompany'
 import { useSelector } from 'react-redux'
+import { IRootState } from '../../redux/storage'
 
 function NavPanel() {
-    const role = useSelector(state => {
+    const role = useSelector((state: IRootState) => {
       return state.combined.users.current.slice(0, 1);
     });
     return (<div>

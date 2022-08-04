@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from './InputField.module.css'
 
-function InputField(props) {
+interface IInputFieldProps {
+    label: string,
+    id: string,
+    onChange?: React.ChangeEventHandler<HTMLInputElement>
+}
+
+function InputField(props: IInputFieldProps) {
 
     return (
         <div className={styles.field}>

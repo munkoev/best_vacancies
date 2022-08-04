@@ -3,12 +3,18 @@ import {useParams} from 'react-router-dom'
 import styles from './VacancyPage.module.css'
 import {useSelector, useDispatch} from 'react-redux'
 import { close_vacancy, response } from '../../redux/vacanciesSlice'
+import { IRootState } from '../../redux/storage'
 
-function VacancyPage(props) {
+interface IVacancyPageProps {
+  role?: string,
+  filtered: boolean
+}
+
+function VacancyPage(props: IVacancyPageProps) {
     let { id } = useParams();
-    const r = [...useSelector(e => e.combined.vacancies)].filter(e => Number(e.id) === Number(id));
+    const r = [...useSelector((state: IRootState) => state.combined.vacancies)].filter(e => Number(e.id) === Number(id));
     const dispatch = useDispatch();
-    const is_logged = useSelector(state => state.combined.users.current) !== '';
+    const is_logged = useSelector((state: IRootState) => state.combined.users.current) !== '';
     return is_logged
     ? (
       <div className={styles.vac}>

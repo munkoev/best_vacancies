@@ -108,8 +108,10 @@ export const vacanciesSlice = createSlice({
         },
         login: (state, action) => {
             const usr = state.users.data.find(e => e.name === action.payload.user)
-            if (usr?.password === action.payload.password) {
-                state.users.current = usr?.id
+            if (usr) {
+                if (usr.password === action.payload.password) {
+                    state.users.current = usr.id
+                }
             }
         },
         add_user: (state, action) => {

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import React from 'react';
-import styles from './NavBarCompany.module.css'
-import {useDispatch} from 'react-redux'
-import {logout} from '../../../redux/vacanciesSlice'
+import styles from './NavBar.module.css'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../../redux/vacanciesSlice'
 
-function NavBarCompany() {
+function NavBar() {
     const dispatch = useDispatch();
     return (
       <div>
@@ -14,13 +14,9 @@ function NavBarCompany() {
                     <img src={'./img/vacancies.svg'} alt="" width={50} height={50}/>
                     <span>Vacancies</span>
                 </Link>
-                <Link to="/active-vacancies" className={styles.navbar_item}>
+                <Link to="/my-vacancies" className={styles.navbar_item}>
                     <img src={'./img/vacanciesID.svg'} alt="" width={50} height={50}/>
                     <span>My vacancies</span>
-                </Link>
-                <Link to="/create-vacancy" className={styles.navbar_item}>
-                    <img src={'./img/newvac.svg'} alt="" width={50} height={50}/>
-                    <span>Create vacancy</span>
                 </Link>
             </div>
             <div>
@@ -36,4 +32,4 @@ function NavBarCompany() {
   );
 }
 
-export default NavBarCompany;
+export default NavBar;

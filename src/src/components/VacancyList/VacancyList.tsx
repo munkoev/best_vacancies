@@ -2,9 +2,15 @@ import React from 'react';
 import styles from './VacancyList.module.css'
 import {useSelector} from 'react-redux'
 import VacancyListItem from '../VacancyListItem/VacancyListItem'
+import { IRootState } from '../../redux/storage'
 
-function VacancyList(props) {
-   const arr = useSelector(state => {
+interface IVacancyListProps {
+  role: string,
+  filter: boolean
+}
+
+function VacancyList(props: IVacancyListProps) {
+   const arr = useSelector((state: IRootState) => {
     const filtered = props.role === 'company'
       ? [...state.combined.vacancies].filter(e => {
         return e.owner === state.combined.users.current;
