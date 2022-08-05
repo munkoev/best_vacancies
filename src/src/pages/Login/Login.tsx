@@ -13,17 +13,17 @@ function Login() {
     }
     return (
     <div className={styles.form}>
-        <InputField label="username" id="login" onChange={e => {
+        <InputField centered={true} label="Username" id="login" onChange={e => {
                 input.user = e.target.value;
             }}/>
-        <InputField label="password" id="password" type="password" onChange={e => {
+        <InputField centered={true} label="Password" id="password" type="password" onChange={e => {
                 input.password = e.target.value;
             }}/>
-        <p>New to BestVacancies? <Link to={'/signup'}>Create an account</Link></p>
+        <p className={styles.centered}>New to BestVacancies?</p><p className={styles.centered}> <Link to={'/signup'}>Create an account</Link></p>
         <Link to="/vacancies" onClick={() => {
                 dispatch(login(input));
             }}>
-            <button>Sign in</button>
+            <button className={styles.button}>Sign in</button>
         </Link>
     </div>
     )

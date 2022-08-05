@@ -5,14 +5,15 @@ interface IInputFieldProps {
     label: string,
     id: string,
     type?: string,
-    onChange?: React.ChangeEventHandler<HTMLInputElement>
+    onChange?: React.ChangeEventHandler<HTMLInputElement>,
+    centered?: boolean
 }
 
 function InputField(props: IInputFieldProps) {
 
     return (
         <div className={styles.field}>
-            <p>{props.label}</p>
+            <p className={props.centered ? 'centered' : ''}>{props.label}</p>
             <input onChange={props.onChange} id={props.id} type={props.type}></input>
         </div>
     )

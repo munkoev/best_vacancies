@@ -12,7 +12,7 @@ export interface IRootState {
             id: number,
             closed: boolean,
             english_lvl: "A" | "B" | "C",
-            grade: "L1" | "L2" | "L3",
+            grade: string,
             tags: string[],
             users: string[],
             owner: string

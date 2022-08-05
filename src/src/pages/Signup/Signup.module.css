@@ -1,6 +1,19 @@
 .form {
-    border: 1px solid lightgrey;
+    border: 0px solid lightgrey;
+    border-radius: 10px;
+    background-color: aliceblue;
     max-width: 400px;
     padding: 30px;
     margin-top: 100px;
+}
+
+.button {
+    margin-top: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: lightseagreen;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
 }

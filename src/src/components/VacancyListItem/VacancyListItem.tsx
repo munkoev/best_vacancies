@@ -31,10 +31,10 @@ function VacancyListItem(props: IVacancyListItemProps) {
             ?.users.includes(state.combined.users.current)
             ? <div><p className={styles.responded}>You responded</p></div>
             : <div></div>) :
-            <div>{state.combined.vacancies[props.id-1].users.length}</div>
+            <div>applicants: <b>{state.combined.vacancies[props.id-1].users.length}</b></div>
           }
         </div>
-        <p>{props.desc}</p>
+        <p className={styles.desc}>{props.desc}</p>
       </div>
   );
 }

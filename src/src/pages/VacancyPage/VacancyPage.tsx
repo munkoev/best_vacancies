@@ -23,17 +23,20 @@ function VacancyPage(props: IVacancyPageProps) {
           <div>{r[0].english_lvl}</div>
           <div>{r[0].grade}</div>
         </div>
-        {r[0].closed ? <p className={styles.closed}>closed</p> : <p></p>}
-        <p className={styles.p}>{r[0].description}</p>
-        <div>Contacts</div>
+        {r[0].closed ? <p className={styles.closed}>closed</p> : <p>actual</p>}
+        <p className={styles.desc}>{r[0].description}</p>
+        <p className={styles.tags}>Tags</p>
         <div className={styles.contacts}>
-          {r[0].tags.map((e, i) => <div key={i}>{e}</div>)}
+        <div className={styles.tags_wrapper}>
+          {r[0].tags.map((e, i) => <div key={i} className={styles.tag}>{e}</div>)}
+        </div>
+
         </div>
         {(props.role === 'c')
-          ? props.filtered === true ? <button onClick={()=> {
+          ? props.filtered === true ? <button className={styles.btn} onClick={()=> {
             dispatch(close_vacancy(id))
           }}>close vac</button> : <div></div>
-          : props.filtered === false ? <button onClick={() => {
+          : props.filtered === false ? <button className={styles.btn} onClick={() => {
             dispatch(response(id))
           }}>response</button> : <div></div>
         }

@@ -18,17 +18,17 @@ function Signup() {
 
     return (
     <div className={styles.form}>
-        <InputField label="username" id="signup_login" onChange={e => {
+        <InputField label="Username" id="signup_login" onChange={e => {
                 input.name = e.target.value;
             }}/>
-        <InputField label="password" id="signup_password" onChange={e => {
+        <InputField type="password" label="Password" id="signup_password" onChange={e => {
                 input.password = e.target.value;
             }}/>
-        <InputField label="repeat password" id="signup_password-repeat" onChange={e => {
+        <InputField type="password" label="Repeat password" id="signup_password-repeat" onChange={e => {
                 input.repeat = e.target.value;
             }}/>
-        <p>Already registered? <Link to={'/login'}>Sign in</Link></p>
-        <button onClick={()=> {
+        <p>Already registered?</p><p> <Link to={'/login'}>Sign in</Link></p>
+        <button className={styles.button} onClick={()=> {
             if (input.password === input.repeat) {
                 dispatch(add_user(input))
                 resetFields();
