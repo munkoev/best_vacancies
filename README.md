@@ -6,3 +6,7 @@ stack:
 - react-router
 - reduxjs/toolkit
 - redux-persist
+- typescript
+
+deploy:
+- 

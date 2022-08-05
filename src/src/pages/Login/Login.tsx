@@ -16,7 +16,7 @@ function Login() {
         <InputField label="username" id="login" onChange={e => {
                 input.user = e.target.value;
             }}/>
-        <InputField label="password" id="password" onChange={e => {
+        <InputField label="password" id="password" type="password" onChange={e => {
                 input.password = e.target.value;
             }}/>
         <p>New to BestVacancies? <Link to={'/signup'}>Create an account</Link></p>

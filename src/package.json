@@ -2,6 +2,7 @@
   "name": "src",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./build",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
@@ -25,9 +26,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "tsc",
+    "build": "BUILD_PATH='../build' react-scripts build",
+    "copy": "cp -R ./public ./build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rm -rf /build",
+    "fclean": "rm -rf /build node_modules"
   },
   "eslintConfig": {
     "extends": [
